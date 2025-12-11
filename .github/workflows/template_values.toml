@@ -1,3 +1,6 @@
 [values]
+crate_name = "test-project"
+authors = "ErenayDev <erenaydev@proton.me>"
 gh-username = "ErenayDev"
-project-description = "Yet another Rust template for your projects"
+long_description = "Test project for template validation"
+short_description = "Test project"

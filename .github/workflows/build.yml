@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PROJECT_NAME: rust-template
+      PROJECT_NAME: test-project
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
