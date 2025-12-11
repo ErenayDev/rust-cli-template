@@ -1,0 +1,47 @@
+[package]
+name = "{{ crate_name }}"
+version = "0.1.0"
+edition = "2024"
+description = "{{long_description}}"
+authors = "{{ authors }}"
+license = "MIT"
+repository = "https://github.com/{{ gh-username }}/{{ crate_name }}"
+homepage = "https://{{ crate_name }}.rs" # or https://github.com/{{ gh-username }}/{{ crate_name }}
+readme = "README.md"
+keywords = ["my", "awesome", "keywords"]
+rust-version = "1.87" # change this with your situtation
+exclude = [
+    "target/",
+    ".git/",
+    ".github/",
+    "debug/",
+    "*.log",
+    # blabla
+]
+
+[dependencies]
+# the new dependencies will be added to here
+
+[package.metadata.binstall]
+pkg-url = "{ repo }/releases/download/v{ version }/{ name }-{ target }-{ version }{ archive-suffix }"
+bin-dir = "{ bin }{ binary-ext }"
+
+[package.metadata.generate-rpm]
+assets = [
+  { source = "target/release/{{ crate_name }}", dest = "/usr/bin/{{ crate_name }}", mode = "755" },
+]
+summary = "{{short_description}}"
+description = "{{long_description}}"
+license = "MIT"
+
+[package.metadata.deb]
+maintainer = "{{ gh-username }}"
+copyright = "2025, {{ gh-username }}"
+extended-description = "{{long_description}}"
+depends = "$auto"
+section = "utility"
+priority = "optional"
+assets = [
+    ["target/release/{{ crate_name }}", "usr/bin/", "755"],
+    ["README.md", "usr/share/doc/{{ crate_name }}/", "644"],
+]

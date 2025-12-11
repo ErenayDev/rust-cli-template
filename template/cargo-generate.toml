@@ -1,0 +1,13 @@
+[template]
+exclude = ["cliff.toml"]
+
+[placeholders]
+long_description = { prompt = "Enter project description", default = "My awesome project that you will very need to use it in your projects!!", type = "string" }
+short_description = { prompt = "Enter project description", default = "My awesome project!!", type = "string" }
+gh-username = { type = "string", prompt = "GitHub username (or organization)", regex = "^[A-Za-z0-9][A-Za-z0-9-]{0,38}$" }
+
+[conditional.'crate_type == "lib"']
+ignore = [ "src/main.rs" ]
+
+[conditional.'crate_type == "bin"']
+ignore = [ "src/lib.rs" ]
